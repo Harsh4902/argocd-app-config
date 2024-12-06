@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: token-orchastrator-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: token-orchastrator
+  template:
+    metadata:
+      labels:
+        app: token-orchastrator
+    spec:
+      containers:
+      - name: token-orchastrator
+        image: harsh4902/token-orchastrator:1.0
+        ports:
+        - containerPort: 8080
