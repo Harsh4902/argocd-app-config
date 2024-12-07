@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: token-orchastrator-deployment
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: token-orchastrator
@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: token-orchastrator
-        image: harsh4902/token-orchastrator:1.0
+        image: harsh4902/token-orchastrator:1.1
         ports:
         - containerPort: 8080

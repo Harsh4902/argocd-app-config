@@ -4,17 +4,20 @@ metadata:
   name: token-orchastrator-argo-application
 spec:
   project: default
+
   source:
     path: dev/
-    repoURL: 'https://github.com/Harsh4902/argocd-app-config'
-    targetRevision: HEAD
-  destination:
-    namespace: argocd
-    server: 'https://kubernetes.default.svc'
+    repoURL: https://github.com/Harsh4902/argocd-app-config.git
+    targetRevision: main
 
+  destination:
+    namespace: myapp
+    server: https://kubernetes.default.svc
+  
   syncPolicy:
     syncOptions:
-    - CreateNamespace=true
+      - CreateNamespace=true
+
     automated:
-      selfHeal: true
-      prune: true
+        selfHeal: true
+        prune: true
